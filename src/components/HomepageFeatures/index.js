@@ -1,50 +1,66 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '自作CPU',
+    image: '/img/riscv-cpu.jpeg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        RISC-V で作るおれおれCPU <br></br>
+        記事制作中。現在 Verilog コードのみ。
       </>
     ),
+    url: 'https://github.com/dokunira/rv32i_zicsr_3stage_pipeline',  // CPUカテゴリーのURLに適宜変更
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '自作キーボード',
+    image: '/img/patamana-keyboard.jpeg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        左右分離型のエルゴノミクスキーボード
       </>
     ),
+    url: 'https://patamana.com/',  // キーボードカテゴリーのURLに適宜変更
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '自作インジケーター',
+    image: '/img/pb-cloud.png',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        MT4用のカスタムインジケーター
       </>
     ),
+    url: 'https://www.gogojungle.co.jp/users/658053',  // インジケーターカテゴリーのURLに適宜変更
+  },
+  {
+    title: 'ブログ',
+    image: '/img/dokunira-site-top.png',
+    description: (
+      <>
+        Docusaurus を使用した テックブログ & ポートフォリオサイト
+      </>
+    ),
+    url: '/',  // Reactカテゴリーのページに適宜変更
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({image, title, description, url}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+      <Link to={url} className={styles.featureLink}>
+        <div className={styles.featureItem}>
+          <div className="text--center">
+            <img src={image} className={styles.featureImg} alt={title} />
+          </div>
+          <div className="text--center padding-horiz--md">
+            <Heading as="h3">{title}</Heading>
+            <p>{description}</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }

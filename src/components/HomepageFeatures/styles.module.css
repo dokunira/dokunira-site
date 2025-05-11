@@ -5,7 +5,34 @@
   width: 100%;
 }
 
-.featureSvg {
+.featureLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.featureItem {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.featureImg {
   height: 200px;
-  width: 200px;
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.featureLink:hover .featureImg {
+  transform: scale(1.05);
 }
